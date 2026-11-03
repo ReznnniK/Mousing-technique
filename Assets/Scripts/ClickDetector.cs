@@ -12,6 +12,12 @@ public class ClickDetector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Mouse.current.leftButton.wasPressedThisFrame)Debug.Log("Clicked mtfckr");
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            Vector3 pos= Mouse.current.position.ReadValue();
+            Ray ray = Camera.main.ScreenPointToRay(pos);
+            Debug.DrawRay(ray.origin,ray.direction*100f,Color.red,2f);
+        }
+        
     }
 }
