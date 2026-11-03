@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Target : MonoBehaviour
 {
@@ -42,8 +43,20 @@ public class Target : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            Vector3 pos= Mouse.current.position.ReadValue();
+            Ray ray = Camera.main.ScreenPointToRay(pos);
+            Debug.DrawRay(ray.origin,ray.direction*100f,Color.red,2f);
+            if(Physics.Raycast(ray,out RaycastHit hit))
+            {
+                if (hit.transform == transform)
+                {
+                    Destroy(gameObject);
+                }
+            }
+        }
     }
 }
