@@ -3,7 +3,7 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     private Rigidbody rb;
-    public float speedMax=15    f;
+    public float speedMax=15f;
     public float speedMin=5f;
     public float torqueMax=25f;
     public float torqueMin=5f;
