@@ -157,3 +157,4 @@ MonoBehaviour:
   speedMin: 5
   torqueMax: 25
   torqueMin: 5
+  pointValue: 55

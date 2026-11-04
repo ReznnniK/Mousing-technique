@@ -3,7 +3,9 @@ using UnityEngine.InputSystem;
 
 public class Target : MonoBehaviour
 {
+    private GameManager gm;
     private Rigidbody rb;
+    [Header("Movement values")]
     public float speedMax=15f;
     public float speedMin=5f;
     public float torqueMax=25f;
@@ -11,10 +13,10 @@ public class Target : MonoBehaviour
     float leftBorder = -5f;
     float rightBorder = 5f;
     float bottomPos=0f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    /// <summary>
-    /// Awake is called when the script instance is being loaded.
-    /// </summary>
+    [Header("Target points value")]
+    public int pointValue;
+    
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -22,6 +24,7 @@ public class Target : MonoBehaviour
     }
     void Start()
     {
+        gm = FindAnyObjectByType<GameManager>();
         transform.position = RandomPos();
         rb.AddForce(RandomForce(), ForceMode.Impulse);
         rb.AddTorque(RandomTorque(), ForceMode.Impulse);
@@ -54,6 +57,7 @@ public class Target : MonoBehaviour
             {
                 if (hit.transform == transform)
                 {
+                    gm.updateScore(pointValue);
                     Destroy(gameObject);
                 }
             }
