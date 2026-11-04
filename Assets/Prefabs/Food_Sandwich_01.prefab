@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0052243fb57cc143adc61bfdc4235f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Target
+  boom: {fileID: 7535607469619513247, guid: ac10190cf200c4f7e881ca8e41d3d760, type: 3}
   speedMax: 25
   speedMin: 5
   torqueMax: 25

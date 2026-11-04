@@ -5,8 +5,9 @@ public class Target : MonoBehaviour
 {
     private GameManager gm;
     private Rigidbody rb;
+    public ParticleSystem boom;
     [Header("Movement values")]
-    public float speedMax=15f;
+    public float speedMax=7f;
     public float speedMin=5f;
     public float torqueMax=25f;
     public float torqueMin=5f;
@@ -20,11 +21,11 @@ public class Target : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        gm = FindAnyObjectByType<GameManager>();
 
     }
     void Start()
     {
-        gm = FindAnyObjectByType<GameManager>();
         transform.position = RandomPos();
         rb.AddForce(RandomForce(), ForceMode.Impulse);
         rb.AddTorque(RandomTorque(), ForceMode.Impulse);
@@ -57,8 +58,11 @@ public class Target : MonoBehaviour
             {
                 if (hit.transform == transform)
                 {
+                    Instantiate(boom,transform.position,transform.rotation);
                     gm.updateScore(pointValue);
+
                     Destroy(gameObject);
+
                 }
             }
         }
