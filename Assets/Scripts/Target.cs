@@ -33,7 +33,8 @@ public class Target : MonoBehaviour
 
     private Vector3 RandomTorque()
     {
-        return Vector3.up * Random.Range(-0.5f, 0.5f) * Random.Range(torqueMin, torqueMax);
+        Vector3 torqueDir = new Vector3(Random.Range(0,180f),Random.Range(0,180f),Random.Range(0,180f));
+        return torqueDir * Random.Range(-0.5f, 0.5f) * Random.Range(torqueMin, torqueMax);
     }
 
     private Vector3 RandomForce()

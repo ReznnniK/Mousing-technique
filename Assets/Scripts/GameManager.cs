@@ -11,9 +11,11 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI gameOverText;
     int amount = 0;
+    bool over;
 
     void Start()
     {
+        over=false;
         scoreText.text=$"Score:{amount}";
         StartCoroutine(SpawnObjects());
     }
@@ -32,12 +34,18 @@ public class GameManager : MonoBehaviour
 
     public void updateScore(int addScore)
     {
-        amount+=addScore;
-        scoreText.text=$"Score:{amount}";
+        if (!over)
+        {
+            amount+=addScore;
+            scoreText.text=$"Score:{amount}";            
+        }
     }
 
     public void GameOver()
     {
         gameOverText.gameObject.SetActive(true);
+        StopAllCoroutines();
+        over=true;
+
     }
 }
