@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class GameManager : MonoBehaviour
     public float spawnInterval=1f;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI gameOverText;
+    public Button restartBtn;
     int amount = 0;
     bool over;
 
@@ -22,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator SpawnObjects()
     {
-        while (true)
+        while (!over)
         {
 
             yield return new WaitForSeconds(spawnInterval);
@@ -44,8 +47,20 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOverText.gameObject.SetActive(true);
-        StopAllCoroutines();
+
+        restartBtn.gameObject.SetActive(true);
+       // StopAllCoroutines();
         over=true;
+
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // amount=0;
+        // updateScore(amount);
+        // over=false;
+       // StartCoroutine(SpawnObjects());
 
     }
 }
