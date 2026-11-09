@@ -12,7 +12,10 @@ public class GameManager : MonoBehaviour
     public float spawnInterval=1f;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI gameOverText;
+    public TextMeshProUGUI title;
     public Button restartBtn;
+    public List<Button> diffBtns;
+    float levelSpeed;
     int amount = 0;
     bool over;
 
@@ -20,16 +23,17 @@ public class GameManager : MonoBehaviour
     {
         over=false;
         scoreText.text=$"Score:{amount}";
-        StartCoroutine(SpawnObjects());
+
     }
 
-    IEnumerator SpawnObjects()
+    IEnumerator SpawnObjects(float flySpeed)
     {
         while (!over)
         {
 
             yield return new WaitForSeconds(spawnInterval);
             int index = Random.Range(0,targets.Count);
+            levelSpeed=flySpeed;
             Instantiate(targets[index]);
             
         }
@@ -62,5 +66,21 @@ public class GameManager : MonoBehaviour
         // over=false;
        // StartCoroutine(SpawnObjects());
 
+    }
+
+    public void StartSpawnWithDifficulty(float flySpeed,float spawnInterval2)
+    {
+        foreach(Button btn in diffBtns)
+        {
+            btn.gameObject.SetActive(false);
+        }
+        title.gameObject.SetActive(false);
+        spawnInterval=spawnInterval2;
+        StartCoroutine(SpawnObjects(flySpeed));
+        
+    }
+    public float GetSpeed()
+    {
+        return levelSpeed;
     }
 }

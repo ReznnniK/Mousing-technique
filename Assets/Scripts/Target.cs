@@ -7,8 +7,8 @@ public class Target : MonoBehaviour
     private Rigidbody rb;
     public ParticleSystem boom;
     [Header("Movement values")]
-    public float speedMax=7f;
-    public float speedMin=5f;
+    float speedMax;
+    float speedMin=0.5f;
     public float torqueMax=25f;
     public float torqueMin=5f;
     float leftBorder = -5f;
@@ -22,6 +22,7 @@ public class Target : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         gm = FindAnyObjectByType<GameManager>();
+        speedMax = gm.GetSpeed();
 
     }
     void Start()
@@ -39,7 +40,8 @@ public class Target : MonoBehaviour
 
     private Vector3 RandomForce()
     {
-        return Vector3.up * Random.Range(speedMin, speedMax);
+        Debug.Log($"Speed:{speedMax}");
+        return Vector3.up * speedMax;//Random.Range(speedMin, speedMax);
     }
 
     private Vector3 RandomPos()
@@ -67,5 +69,11 @@ public class Target : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void SetMaxFlySpeed(float maxFlySpeed)
+    {
+        Debug.Log("NEW SPEED:"+speedMax);
+        speedMax=maxFlySpeed;
     }
 }

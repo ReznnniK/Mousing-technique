@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 130042027}
   - component: {fileID: 130042026}
   - component: {fileID: 130042025}
+  - component: {fileID: 130042028}
   m_Layer: 5
   m_Name: Hard
   m_TagString: Untagged
@@ -339,16 +340,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 627666498}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: RestartGame
-        m_Mode: 1
+      - m_Target: {fileID: 11500000, guid: 4ab7cbd832f904a4abb2473886138476, type: 3}
+        m_TargetAssemblyTypeName: UnityEditor.MonoScript, UnityEditor.CoreModule
+        m_MethodName: set_name
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: SetDifficulty
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &130042026
@@ -389,6 +390,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130042023}
   m_CullTransparentMesh: 1
+--- !u!114 &130042028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130042023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ab7cbd832f904a4abb2473886138476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DifficultiesBtns
+  speed: 25
+  spawnInterval: 0.8
 --- !u!1 &145047545
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,6 +1062,7 @@ GameObject:
   - component: {fileID: 520096551}
   - component: {fileID: 520096550}
   - component: {fileID: 520096549}
+  - component: {fileID: 520096552}
   m_Layer: 5
   m_Name: Easy
   m_TagString: Untagged
@@ -1118,16 +1134,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 627666498}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: RestartGame
-        m_Mode: 1
+      - m_Target: {fileID: 11500000, guid: 4ab7cbd832f904a4abb2473886138476, type: 3}
+        m_TargetAssemblyTypeName: UnityEditor.MonoScript, UnityEditor.CoreModule
+        m_MethodName: set_name
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: SetDifficulty
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &520096550
@@ -1168,6 +1184,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 520096547}
   m_CullTransparentMesh: 1
+--- !u!114 &520096552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520096547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ab7cbd832f904a4abb2473886138476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DifficultiesBtns
+  speed: 15
+  spawnInterval: 1.5
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,7 +1509,12 @@ MonoBehaviour:
   spawnInterval: 1
   scoreText: {fileID: 547630903}
   gameOverText: {fileID: 1636766020}
+  title: {fileID: 47592658}
   restartBtn: {fileID: 145047547}
+  diffBtns:
+  - {fileID: 520096549}
+  - {fileID: 1234636691}
+  - {fileID: 130042025}
 --- !u!4 &627666499
 Transform:
   m_ObjectHideFlags: 0
@@ -1840,6 +1875,7 @@ GameObject:
   - component: {fileID: 1234636693}
   - component: {fileID: 1234636692}
   - component: {fileID: 1234636691}
+  - component: {fileID: 1234636694}
   m_Layer: 5
   m_Name: Medium
   m_TagString: Untagged
@@ -1911,16 +1947,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 627666498}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: RestartGame
-        m_Mode: 1
+      - m_Target: {fileID: 11500000, guid: 4ab7cbd832f904a4abb2473886138476, type: 3}
+        m_TargetAssemblyTypeName: UnityEditor.MonoScript, UnityEditor.CoreModule
+        m_MethodName: set_name
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: SetDifficulty
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1234636692
@@ -1961,6 +1997,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1234636689}
   m_CullTransparentMesh: 1
+--- !u!114 &1234636694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234636689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ab7cbd832f904a4abb2473886138476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DifficultiesBtns
+  speed: 20
+  spawnInterval: 1.2
 --- !u!1 &1272245890
 GameObject:
   m_ObjectHideFlags: 0
